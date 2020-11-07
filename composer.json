@@ -1,0 +1,40 @@
+{
+    "name": "ollico/laravel-audit-log-queue",
+    "description": "A Laravel audit log queue.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Bonner",
+            "email": "david@ollicosoftware.com"
+        },
+        {
+            "name": "Keiron McGivern",
+            "email": "keironmcgivern@ollicosoftware.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "illuminate/config": "^6.0|^7.0",
+        "illuminate/contracts": "^6.0|^7.0|^8.0",
+        "illuminate/support": "^6.0|^7.0|^8.0",
+        "illuminate/database": "^6.0|^7.0|^8.0",
+        "davidianbonner/enumerated": "^3.0",
+        "spatie/laravel-activitylog": "3.16.1"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0",
+        "mockery/mockery": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ollico\\AuditLog\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ollico\\AuditLog\\Tests\\": "tests/"
+        }
+    }
+}
