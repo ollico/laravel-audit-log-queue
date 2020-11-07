@@ -16,13 +16,17 @@ class LogAuditableEvent implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    public Model $dimension;
+    /** @var Model */
+    public $dimension;
 
-    public ?Model $causer = null;
+    /** @var ?Model */
+    public $causer = null;
 
-    public string $activity;
+    /** @var string */
+    public $activity;
 
-    public array $props = [];
+    /** @var array */
+    public $props = [];
 
     public function __construct(
         Model $dimension,

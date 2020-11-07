@@ -10,7 +10,8 @@ use Spatie\Activitylog\ActivityLogger;
 
 class AuditLog
 {
-    protected ActivityLogger $activity;
+    /** @var ActivityLogger */
+    protected $activity;
 
     public function __construct()
     {
@@ -19,7 +20,7 @@ class AuditLog
 
     public function causer(?Model $causer = null): AuditLog
     {
-        if (! $causer) {
+        if (!$causer) {
             $this->activity->causedByAnonymous();
         } else {
             $this->activity->causedBy($causer);
