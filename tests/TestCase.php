@@ -7,11 +7,11 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Schema;
 use Ollico\AuditLog\AuditLogServiceProvider;
-use Ollico\AuditLog\Tests\Models\Activity;
 use Ollico\AuditLog\Tests\Models\Article;
 use Ollico\AuditLog\Tests\Models\User;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use Spatie\Activitylog\ActivitylogServiceProvider;
+use Spatie\Activitylog\Models\Activity;
 
 abstract class TestCase extends OrchestraTestCase
 {
