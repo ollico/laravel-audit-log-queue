@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Ollico\AuditLogs;
+namespace Ollico\AuditLog;
 
 use Illuminate\Support\ServiceProvider;
 
