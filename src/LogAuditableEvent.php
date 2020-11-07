@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ollico\AuditLog;
 
-use DavidIanBonner\Enumerated\Enum;
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Database\Eloquent\Model;
@@ -43,10 +43,16 @@ class LogAuditableEvent implements ShouldQueue
 
     public function handle(): void
     {
+        $enumInstance = config('audit-queue.enum');
+
+        if (!$enumInstance) {
+            throw new Exception('No Enum instance could be found.');
+        }
+
         (new AuditLog())
             ->causer($this->causer ?: null)
             ->dimension($this->dimension)
             ->properties($this->props)
-            ->log(new Enum($this->activity));
+            ->log(new $enumInstance($this->activity));
     }
 }

@@ -49,6 +49,7 @@ class AuditLogTest extends TestCase
 
         $this->actingAs($this->user);
 
+        // This tests the base `audit` method also
         audit_user($this->article, TestEnum::ENUM, ['prop1' => 'data']);
 
         Queue::assertPushedOn(

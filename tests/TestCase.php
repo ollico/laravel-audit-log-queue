@@ -7,6 +7,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Encryption\Encrypter;
 use Illuminate\Support\Facades\Schema;
 use Ollico\AuditLog\AuditLogServiceProvider;
+use Ollico\AuditLog\Tests\Enums\TestEnum;
 use Ollico\AuditLog\Tests\Models\Article;
 use Ollico\AuditLog\Tests\Models\User;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
@@ -43,6 +44,7 @@ abstract class TestCase extends OrchestraTestCase
         $app['config']->set('app.key', 'base64:' . base64_encode(
             Encrypter::generateKey($app['config']['app.cipher'])
         ));
+        $app['config']->set('audit-queue.enum', TestEnum::class);
         $app['config']->set('audit-queue.queue', 'auditlog');
     }
 
