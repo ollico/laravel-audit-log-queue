@@ -45,7 +45,7 @@ class LogAuditableEvent implements ShouldQueue
     {
         $enumInstance = config('audit-queue.enum');
 
-        if (!$enumInstance) {
+        if (! $enumInstance) {
             throw new Exception('No Enum instance could be found.');
         }
 
