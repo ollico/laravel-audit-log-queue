@@ -47,7 +47,7 @@ class Activity extends Model implements ActivityContract
 
     public function changes(): Collection
     {
-        if (!$this->properties instanceof Collection) {
+        if (! $this->properties instanceof Collection) {
             return new Collection();
         }
 
