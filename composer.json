@@ -27,6 +27,14 @@
         "phpunit/phpunit": "^8.0",
         "mockery/mockery": "^1.0"
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Ollico\\AuditLog\\AuditLogServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
     "autoload": {
         "psr-4": {
             "Ollico\\AuditLog\\": "src/"
