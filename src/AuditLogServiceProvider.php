@@ -16,5 +16,9 @@ class AuditLogServiceProvider extends ServiceProvider
     public function boot()
     {
         include_once __DIR__ . '/helpers.php';
+
+        $this->publishes([
+            __DIR__ . '/config/audit-queue.php' => config_path('audit-queue.php'),
+        ]);
     }
 }
