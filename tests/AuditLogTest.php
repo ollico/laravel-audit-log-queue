@@ -2,7 +2,6 @@
 
 namespace Ollico\AuditLog\Tests;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Queue;
 use Ollico\AuditLog\AuditLog;
@@ -10,8 +9,6 @@ use Ollico\AuditLog\LogAuditableEvent;
 use Ollico\AuditLog\Tests\Enums\TestEnum;
 use Ollico\AuditLog\Tests\Models\Article;
 use Ollico\AuditLog\Tests\Models\User;
-use Ollico\AuditLog\Tests\TestCase;
-use Spatie\Activitylog\Traits\LogsActivity;
 
 class AuditLogTest extends TestCase
 {
@@ -25,7 +22,7 @@ class AuditLogTest extends TestCase
     }
 
     /** @test */
-    function it_can_log_activity_directly()
+    public function it_can_log_activity_directly()
     {
         (new AuditLog())
             ->causer($this->user)
@@ -46,7 +43,7 @@ class AuditLogTest extends TestCase
     }
 
     /** @test */
-    function it_can_push_audit_to_queue()
+    public function it_can_push_audit_to_queue()
     {
         Queue::fake();
 
