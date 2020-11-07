@@ -13,5 +13,21 @@ Easily send auditable user (or any other entity) events to the queue and store t
 
 The logger requires the use of an `Enum` class to ensure only allowed events are logged.
 
+## Installation
+
+**Install the package**
+
+```bash
+composer require ollico/laravel-audit-log-queue
+```
+
+This package uses auto-discovery which doesn't require you to manually add the ServiceProvider.
+
+**Publish the config**
+
+```bash
+php artisan vendor:publish --provider="Ollico\AuditLog\AuditLogServiceProvider"
+```
+
 ### Thanks
 This package depends on the terrific [Activity Log](https://github.com/spatie/activitylog) package by Spatie.
