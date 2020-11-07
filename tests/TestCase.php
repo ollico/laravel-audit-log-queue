@@ -43,6 +43,7 @@ abstract class TestCase extends OrchestraTestCase
         $app['config']->set('app.key', 'base64:' . base64_encode(
             Encrypter::generateKey($app['config']['app.cipher'])
         ));
+        $app['config']->set('audit-queue.queue', 'auditlog');
     }
 
     protected function setUpDatabase()

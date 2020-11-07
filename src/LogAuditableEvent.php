@@ -34,7 +34,7 @@ class LogAuditableEvent implements ShouldQueue
         ?Model $causer = null,
         array $props = []
     ) {
-        $this->queue = config('audit-queue.queue');
+        $this->queue = config('audit-queue.queue', null);
         $this->dimension = $dimension;
         $this->activity = $activity;
         $this->causer = $causer;
