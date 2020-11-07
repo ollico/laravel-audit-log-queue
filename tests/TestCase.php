@@ -5,7 +5,6 @@ namespace Ollico\AuditLog\Tests;
 use CreateActivityLogTable;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Encryption\Encrypter;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Schema;
 use Ollico\AuditLog\AuditLogServiceProvider;
 use Ollico\AuditLog\Tests\Models\Activity;
