@@ -20,7 +20,7 @@ class AuditLog
 
     public function causer(?Model $causer = null): AuditLog
     {
-        if (! $causer) {
+        if (!$causer) {
             $this->activity->causedByAnonymous();
         } else {
             $this->activity->causedBy($causer);
@@ -45,6 +45,6 @@ class AuditLog
 
     public function log(Enum $activity): void
     {
-        $this->activity->log($activity->value());
+        $this->activity->log($activity->value);
     }
 }
