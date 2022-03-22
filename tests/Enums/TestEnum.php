@@ -2,13 +2,16 @@
 
 namespace Ollico\AuditLog\Tests\Enums;
 
-use DavidIanBonner\Enumerated\Enum;
+use DavidIanBonner\Enumerated\Enumerated;
+use DavidIanBonner\Enumerated\HasEnumeration;
 
-class TestEnum extends Enum
+enum TestEnum: string implements Enumerated
 {
-    public const ENUM = 'enum';
+    use HasEnumeration;
 
-    public function langKey(): string
+    case ENUM = 'enum';
+
+    public static function key(): string
     {
         return 'enum';
     }

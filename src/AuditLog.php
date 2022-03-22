@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ollico\AuditLog;
 
-use DavidIanBonner\Enumerated\Enum;
+use DavidIanBonner\Enumerated\Enumerated;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\ActivityLogger;
 
@@ -43,7 +43,7 @@ class AuditLog
         return $this;
     }
 
-    public function log(Enum $activity): void
+    public function log(Enumerated $activity): void
     {
         $this->activity->log($activity->value);
     }
