@@ -30,11 +30,11 @@ class AuditLogTest extends TestCase
             ->properties([
                 'key' => 'value',
             ])
-            ->log(TestEnum::ofType(TestEnum::ENUM));
+            ->log(TestEnum::from(TestEnum::ENUM->value));
 
         $activity = $this->getLastActivity();
 
-        $this->assertEquals(TestEnum::ENUM, $activity->description);
+        $this->assertEquals(TestEnum::ENUM->value, $activity->description);
         $this->assertEquals($this->article->id, $activity->subject->id);
         $this->assertInstanceOf(Article::class, $activity->subject);
         $this->assertEquals($this->article->id, $activity->causer->id);
@@ -50,7 +50,7 @@ class AuditLogTest extends TestCase
         $this->actingAs($this->user);
 
         // This tests the base `audit` method also
-        audit_user($this->article, TestEnum::ENUM, ['prop1' => 'data']);
+        audit_user($this->article, TestEnum::ENUM->value, ['prop1' => 'data']);
 
         Queue::assertPushedOn(
             'auditlog',
@@ -58,7 +58,7 @@ class AuditLogTest extends TestCase
             function (LogAuditableEvent $job) {
                 return $job->dimension->id === $this->article->id
                     && $job->causer->id === $this->user->id
-                    && $job->activity === TestEnum::ENUM
+                    && $job->activity === TestEnum::ENUM->value
                     && $job->props['prop1'] === 'data';
             }
         );

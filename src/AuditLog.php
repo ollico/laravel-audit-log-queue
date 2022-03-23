@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ollico\AuditLog;
 
-use DavidIanBonner\Enumerated\Enum;
+use DavidIanBonner\Enumerated\Enumerated;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Activitylog\ActivityLogger;
 
@@ -20,7 +20,7 @@ class AuditLog
 
     public function causer(?Model $causer = null): AuditLog
     {
-        if (! $causer) {
+        if (!$causer) {
             $this->activity->causedByAnonymous();
         } else {
             $this->activity->causedBy($causer);
@@ -43,8 +43,8 @@ class AuditLog
         return $this;
     }
 
-    public function log(Enum $activity): void
+    public function log(Enumerated $activity): void
     {
-        $this->activity->log($activity->value());
+        $this->activity->log($activity->value);
     }
 }
