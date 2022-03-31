@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Ollico\AuditLog;
 
+use DavidIanBonner\Enumerated\Enumerated;
 use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -30,13 +31,13 @@ class LogAuditableEvent implements ShouldQueue
 
     public function __construct(
         Model $dimension,
-        string $activity,
+        Enumerated|string $activity,
         ?Model $causer = null,
         array $props = []
     ) {
         $this->queue = config('audit-queue.queue', null);
         $this->dimension = $dimension;
-        $this->activity = $activity;
+        $this->activity = $activity instanceof Enumerated ? $activity->value : $activity;
         $this->causer = $causer;
         $this->props = $props;
     }
