@@ -56,4 +56,9 @@ class User extends Model implements Authenticatable
     {
         return $this->hasOne(Article::class)->latest()->limit(1);
     }
+
+    public function getAuthPasswordName()
+    {
+        return 'password';
+    }
 }

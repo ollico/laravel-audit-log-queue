@@ -58,7 +58,7 @@ abstract class TestCase extends OrchestraTestCase
 
     protected function createActivityLogTable()
     {
-        include_once __DIR__ . '/../vendor/spatie/laravel-activitylog/migrations/create_activity_log_table.php.stub';
+        include_once __DIR__ . '/../vendor/spatie/laravel-activitylog/database/migrations/create_activity_log_table.php.stub';
 
         (new CreateActivityLogTable())->up();
     }
