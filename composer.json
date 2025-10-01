@@ -19,7 +19,7 @@
     "illuminate/contracts": "^9.30|^10.0|^11.0|^12.0",
     "illuminate/support": "^9.30|^10.0|^11.0|^12.0",
     "illuminate/database": "^9.30|^10.0|^11.0|^12.0",
-    "davidianbonner/enumerated": "^7.0",
+    "davidianbonner/enumerated": "^7.0|^8.0",
     "spatie/laravel-activitylog": "^4.9"
   },
   "require-dev": {
